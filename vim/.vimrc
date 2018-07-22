@@ -5,6 +5,7 @@ let mapleader="\\"
 
 source ~/.vim/plugins.vim
 source ~/.vim/theme.vim
+source ~/.vim/functions.vim
 source ~/.vim/general.vim
 
 set ttyfast

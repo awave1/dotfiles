@@ -2,37 +2,24 @@
 " Theme module
 " ============
 syntax on
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" set termguicolors
 
+set cursorline
 
 " ====================
 " Colorscheme
 " ====================
-" Set TrueColor support
-if(has("termguicolors"))
-  set termguicolors
-endif
-
-let &t_ut=""
-let &t_ZH="\e[3m"
-let &t_ZR="\e[23m"
-
 set background=dark
-let g:one_allow_italics=1
-colorscheme one
+"let g:onedark_terminal_italics=1
+let g:gruvbox_italic=1
+colorscheme gruvbox
+
+hi Comment gui=italic cterm=italic
+hi htmlArg gui=italic cterm=italic
 
 " ====================
 " Airline
 " ====================
-
-
-
-
-function! ToggleBackground()
-  let s:tbg = &background
-  if s:tbg == "dark"
-    set background=ligt
-  else
-    set background=dark
-  endif
-endfunction
+"let g:airline_theme='one'
 
