@@ -23,6 +23,7 @@ ln -s $PWD/vim/functions.vim $HOME/.vim/functions.vim
 ln -s $PWD/vim/general.vim $HOME/.vim/general.vim
 ln -s $PWD/vim/plugins.vim $HOME/.vim/plugins.vim
 ln -s $PWD/vim/theme.vim $HOME/.vim/theme.vim
+ln -s $PWD/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
 # install all plugins
 vim +'PlugInstall --sync' +qa
