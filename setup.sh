@@ -24,6 +24,8 @@ ln -s $PWD/vim/general.vim $HOME/.vim/general.vim
 ln -s $PWD/vim/plugins.vim $HOME/.vim/plugins.vim
 ln -s $PWD/vim/theme.vim $HOME/.vim/theme.vim
 ln -s $PWD/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+ln -s $PWD/chunkwm/.chunkwmrc $HOME/.chunkwmrc
+ln -s $PWD/skhd/.skhdrc $HOME/.skhdrc
 
 # install all plugins
 vim +'PlugInstall --sync' +qa
