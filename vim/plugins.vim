@@ -5,9 +5,9 @@ set rtp+=/usr/local/opt/fzf
 
 " language support
 " c
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
-Plug 'ludwig/split-manpage.vim'
+" Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
+" Plug 'ludwig/split-manpage.vim'
 
 " html
 "" HTML Bundle
@@ -29,8 +29,8 @@ Plug 'posva/vim-vue'
 
 " python
 "" Python Bundle
-Plug 'davidhalter/jedi-vim'
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+" Plug 'davidhalter/jedi-vim'
+" Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
@@ -39,6 +39,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'keith/swift.vim'
 Plug 'jgoulah/cocoa.vim'
 Plug 'eraserhd/vim-ios'
+Plug 'b4winckler/vim-objc'
 
 " rust
 " Vim racer
@@ -66,10 +67,11 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/grep.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'kien/ctrlp.vim'
+Plug 'kristijanhusak/vim-carbon-now-sh'
 
 " Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -85,26 +87,20 @@ Plug 'vim-scripts/AutoClose'
 
 Plug 'terryma/vim-expand-region'
 Plug 'unblevable/quick-scope' 
-Plug '/usr/local/opt/fzf'
 
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 Plug 'w0rp/ale'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'Valloric/YouCompleteMe'
 
 " Themes & colors
 Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
-Plug 'sonph/onehalf'
 Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
-Plug 'Erichain/vim-monokai-pro'
-Plug 'tomasr/molokai'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'challenger-deep-theme/vim'
+Plug 'jacoborus/tender.vim'
 
 call plug#end()
 filetype plugin indent on    " required

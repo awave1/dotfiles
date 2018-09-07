@@ -178,3 +178,9 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
+" 
+" vim-racer (rust)
+"
+set hidden
+let g:racer_cmd = "/Users/awave/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
