@@ -3,12 +3,6 @@ call plug#begin('~/.vim/plugged')
 
 set rtp+=/usr/local/opt/fzf
 
-" language support
-" c
-" Plug 'octol/vim-cpp-enhanced-highlight'
-" Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
-" Plug 'ludwig/split-manpage.vim'
-
 " html
 "" HTML Bundle
 Plug 'hail2u/vim-css3-syntax'
@@ -35,22 +29,18 @@ Plug 'posva/vim-vue'
 " ruby
 Plug 'vim-ruby/vim-ruby'
 
-" swift + objc + ios
-Plug 'keith/swift.vim'
-Plug 'jgoulah/cocoa.vim'
-Plug 'eraserhd/vim-ios'
-Plug 'b4winckler/vim-objc'
-
 " rust
-" Vim racer
 Plug 'racer-rust/vim-racer'
-" Rust.vim
 Plug 'rust-lang/rust.vim'
 
-" Kotlin
-Plug 'udalov/kotlin-vim'
+" Markdown + LaTeX
+Plug 'plasticboy/vim-markdown'
+Plug 'lervag/vimtex'
 
-Plug 'dag/vim-fish'
+" Autocomplete + Lint
+Plug 'w0rp/ale'
+Plug 'Valloric/YouCompleteMe'
+
 
 " vim
 Plug 'tpope/vim-sensible'
@@ -68,6 +58,7 @@ Plug 'vim-scripts/grep.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'kien/ctrlp.vim'
 Plug 'kristijanhusak/vim-carbon-now-sh'
+Plug 'godlygeek/tabular'
 
 " Snippets
 " Plug 'SirVer/ultisnips'
@@ -91,9 +82,6 @@ Plug 'unblevable/quick-scope'
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-
-Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe'
 
 " Themes & colors
 Plug 'rakr/vim-one'
