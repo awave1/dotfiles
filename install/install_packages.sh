@@ -1,4 +1,4 @@
-#/bin/bash
+#!/usr/bin/env bash
 
 BREW="$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 PACKAGES="./packages.txt"

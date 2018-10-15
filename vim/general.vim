@@ -158,11 +158,14 @@ let NERDTreeDirArrows = 1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
+let g:ale_javascript_eslint_suppress_missing_config = 1
+" autocmd FileType javascript let g:ale_linters = findfile('.eslintrc', '.;') != '' ? {'javascript': ['eslint']} : {'javascript': ['']}
 
 "
-" YCM
+" deoplete
 "
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 "
 " UtilSnips
@@ -184,3 +187,21 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 set hidden
 let g:racer_cmd = "/Users/awave/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
+
+"
+" goyo.vim
+"
+let g:goyo_width = 120
+let g:goyo_linenr = 1
+
+"
+" vim-markdown
+"
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_math = 1
+
+"
+" vim-prettier
+"
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
