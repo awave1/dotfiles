@@ -18,7 +18,8 @@ syntax enable
 set background=dark
 let g:onedark_terminal_italics=1
 let g:gruvbox_italic=1
-colorscheme gruvbox
+let g:onedark_terminal_italics=1
+colorscheme onedark
 
 hi Comment gui=italic cterm=italic
 hi htmlArg gui=italic cterm=italic
@@ -26,5 +27,5 @@ hi htmlArg gui=italic cterm=italic
 " ====================
 " Airline
 " ====================
-let g:airline_theme='tender'
+let g:airline_theme='onedark'
 

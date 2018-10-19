@@ -19,14 +19,6 @@ Plug 'isRuslan/vim-es6'
 Plug 'posva/vim-vue'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-" python
-"" Python Bundle
-" Plug 'davidhalter/jedi-vim'
-" Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-
-" ruby
-Plug 'vim-ruby/vim-ruby'
-
 " rust
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'

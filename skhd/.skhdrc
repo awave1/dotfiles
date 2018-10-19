@@ -69,7 +69,7 @@
 # launch a new terminal instance when in either 'default' or 'test' mode
 # default, test < cmd - return : open -na /Applications/Terminal.app
 
-cmd - return : /Applications/Alacritty.app
+cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
 
 # close focused window
 alt - w : chunkc tiling::window --close

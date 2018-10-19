@@ -16,6 +16,7 @@
 " General
 " ==========================
 set history=1000
+set encoding=UTF-8
 
 " enable filetype plugins
 filetype plugin on
