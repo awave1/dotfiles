@@ -15,3 +15,5 @@ alias ssh="env TERM=xterm-256color ssh"
 
 funcsave vim
 funcsave ls
+
+thefuck --alias | source

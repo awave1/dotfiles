@@ -128,6 +128,12 @@ nmap <leader>q :wq<cr>
 " toggle cursor centering 
 nnoremap <leader>zz :let &scrolloff=999-&scrolloff<cr>
 
+autocmd FileType markdown inoremap <F10> $``$<Left><Left>
+autocmd FileType markdown inoremap <F11> **<Left>
+autocmd FileType markdown inoremap <F12> ****<Left><Left>
+
+nmap <F8> :Goyo<cr>
+
 
 " ==========================
 " Plugin Setup
@@ -204,4 +210,4 @@ let g:vim_markdown_math = 1
 " vim-prettier
 "
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync

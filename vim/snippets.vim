@@ -1,0 +1,1 @@
+" iabbrev imath $``$<Left><Left>
