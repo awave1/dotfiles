@@ -16,10 +16,8 @@ set cursorline
 " ====================
 syntax enable
 set background=dark
-let g:onedark_terminal_italics=1
 let g:gruvbox_italic=1
-let g:onedark_terminal_italics=1
-colorscheme onedark
+colorscheme gruvbox
 
 hi Comment gui=italic cterm=italic
 hi htmlArg gui=italic cterm=italic
@@ -27,5 +25,5 @@ hi htmlArg gui=italic cterm=italic
 " ====================
 " Airline
 " ====================
-let g:airline_theme='onedark'
+let g:airline_theme='gruvbox'
 

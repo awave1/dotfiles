@@ -79,15 +79,11 @@ Plug 'terryma/vim-expand-region'
 Plug 'unblevable/quick-scope' 
 
 " Git
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 
 " Themes & colors
-Plug 'rakr/vim-one'
-Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'jacoborus/tender.vim'
 
 call plug#end()
 filetype plugin indent on    " required

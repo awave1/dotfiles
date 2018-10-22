@@ -2,7 +2,7 @@
 " Some useful functions
 "
 
-function ToggleBackground()
+function! ToggleBackground()
   if &background == "dark"
     set background=light
   else
