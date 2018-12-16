@@ -40,8 +40,9 @@ Plug 'Quramy/tsuquyomi', { 'do': 'npm install -g typescript' }
 Plug 'mhartington/deoplete-typescript'
 "Rust
 Plug 'sebastianmarkow/deoplete-rust'
+Plug 'zchee/deoplete-jedi'
 " clang
-Plug 'tweekmonster/deoplete-clang2'
+" Plug 'tweekmonster/deoplete-clang2'
 
 " vim
 Plug 'tpope/vim-sensible'
@@ -84,6 +85,7 @@ Plug 'tpope/vim-fugitive'
 
 " Themes & colors
 Plug 'morhetz/gruvbox'
+Plug 'blueshirts/darcula'
 
 call plug#end()
 filetype plugin indent on    " required

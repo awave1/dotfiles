@@ -164,6 +164,7 @@ let NERDTreeDirArrows = 1
 "
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'python': ['flake8'],
 \}
 let g:ale_javascript_eslint_suppress_missing_config = 1
 " autocmd FileType javascript let g:ale_linters = findfile('.eslintrc', '.;') != '' ? {'javascript': ['eslint']} : {'javascript': ['']}
