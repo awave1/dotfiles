@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 BREW="$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-PACKAGES="./packages.txt"
+PACKAGES="./packages"
 
 echo "Installing base packages..."
 
