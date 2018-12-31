@@ -9,11 +9,13 @@ set -U EDITOR nvim
 # duh
 alias vim="nvim"
 alias ls="exa"
-alias git-push-all="git push origin ; git push upstream"
+alias cat="bat"
+
 alias python="python3"
-alias ssh="env TERM=xterm-256color ssh"
 
 funcsave vim
 funcsave ls
+funcsave cat
+funcsave python
 
 thefuck --alias | source
