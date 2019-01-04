@@ -18,6 +18,7 @@ Plug 'mxw/vim-jsx'
 Plug 'isRuslan/vim-es6'
 Plug 'posva/vim-vue'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " rust
 Plug 'racer-rust/vim-racer'
