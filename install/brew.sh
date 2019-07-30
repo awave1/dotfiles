@@ -28,6 +28,7 @@ brew_install() {
     gradle
     glfw
     go
+    "--with-toolchain llvm"
   )
 
   casks=(
