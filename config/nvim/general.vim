@@ -71,6 +71,9 @@ set expandtab
 autocmd FileType c setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 expandtab
 
+" Turn on spellcheck for markdown & latex
+autocmd FileType latex,tex,md,markdown setlocal spell
+
 
 " ==========================
 " Movement, tabs, buffers
@@ -129,87 +132,6 @@ nmap <leader>q :wq<cr>
 " toggle cursor centering 
 nnoremap <leader>zz :let &scrolloff=999-&scrolloff<cr>
 
-autocmd FileType markdown inoremap <F10> $``$<Left><Left>
+autocmd FileType markdown inoremap <F10> $$<Left>
 autocmd FileType markdown inoremap <F11> **<Left>
 autocmd FileType markdown inoremap <F12> ****<Left><Left>
-
-nmap <F8> :Goyo<cr>
-
-
-" ==========================
-" Plugin Setup
-" ==========================
-"
-" NERDTree
-"
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists(“s:std_in”) | NERDTree | endif
- 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-autocmd VimEnter * NERDTree
-" Go to previous (last accessed) window.
-autocmd VimEnter * wincmd p
-
-let NERDTreeShowHidden=1
-" let NERDTreeMapOpenInTab='<ENTER>'
-nnoremap <silent> <leader>f :NERDTreeToggle<CR>
-nnoremap <silent> <leader>v :NERDTreeFind<CR>
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-
-
-" 
-" Ale
-"
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'python': ['flake8'],
-\}
-let g:ale_javascript_eslint_suppress_missing_config = 1
-" autocmd FileType javascript let g:ale_linters = findfile('.eslintrc', '.;') != '' ? {'javascript': ['eslint']} : {'javascript': ['']}
-
-"
-" deoplete
-"
-let g:deoplete#enable_at_startup = 1
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
-"
-" UtilSnips
-"
-let g:UltiSnipsExpandTrigger="<c-a>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-"
-" vim-airline
-"
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-
-" 
-" vim-racer (rust)
-"
-set hidden
-let g:racer_cmd = "/Users/awave/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
-
-"
-" goyo.vim
-"
-let g:goyo_width = 120
-let g:goyo_linenr = 1
-
-"
-" vim-markdown
-"
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_math = 1
-
-"
-" vim-prettier
-"
-let g:prettier#autoformat = 0
-" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync

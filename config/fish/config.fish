@@ -1,4 +1,5 @@
 set PATH /Library/TeX/texbin $PATH
+set PATH "$HOME/.pub-cache/bin" $PATH
 
 # remove fish greeting
 set fish_greeting
@@ -12,6 +13,9 @@ alias ls="exa"
 alias cat="bat"
 
 alias python="python3"
+alias todo="todolist"
+alias vup="vagrant up"
+alias vhalt="vagrant halt"
 
 funcsave vim
 funcsave ls

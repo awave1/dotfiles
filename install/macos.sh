@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "setting up macos defaults"
 
 # ~/.macos — https://mths.be/macos
 
@@ -567,7 +568,6 @@ for app in "Activity Monitor" \
 	"Google Chrome" \
 	"Mail" \
 	"Messages" \
-	"Opera" \
 	"Photos" \
 	"Safari" \
 	"SystemUIServer" \
