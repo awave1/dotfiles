@@ -14,7 +14,6 @@ brew_install() {
     wget
     tmux
     vim
-    macvim
     nvim
     fish
     yarn
