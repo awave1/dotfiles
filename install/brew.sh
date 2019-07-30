@@ -19,6 +19,7 @@ brew_install() {
     fish
     yarn
     node
+    nvm
     python
     python3
     the_silver_searcher
@@ -27,6 +28,7 @@ brew_install() {
     neofetch
     gradle
     glfw
+    go
   )
 
   casks=(
