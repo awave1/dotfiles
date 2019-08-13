@@ -1,5 +1,11 @@
+set --export ANDROID $HOME/Library/Android
+set --export ANDROID_HOME "$ANDROID/sdk"
 set PATH /Library/TeX/texbin $PATH
 set PATH "$HOME/.pub-cache/bin" $PATH
+set -gx PATH "$ANDROID_HOME/emulator" $PATH
+set -gx PATH "$ANDROID_HOME/tools" $PATH
+set -gx PATH "$ANDROID_HOME/tools/bin" $PATH
+set -gx PATH "$ANDROID_HOME/platform-tools" $PATH
 
 # remove fish greeting
 set fish_greeting
