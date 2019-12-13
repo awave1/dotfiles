@@ -135,3 +135,4 @@ nnoremap <leader>zz :let &scrolloff=999-&scrolloff<cr>
 autocmd FileType markdown inoremap <F10> $$<Left>
 autocmd FileType markdown inoremap <F11> **<Left>
 autocmd FileType markdown inoremap <F12> ****<Left><Left>
+

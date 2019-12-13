@@ -1,11 +1,13 @@
-set --export ANDROID $HOME/Library/Android
-set --export ANDROID_HOME "$ANDROID/sdk"
-set PATH /Library/TeX/texbin $PATH
-set PATH "$HOME/.pub-cache/bin" $PATH
-set -gx PATH "$ANDROID_HOME/emulator" $PATH
-set -gx PATH "$ANDROID_HOME/tools" $PATH
-set -gx PATH "$ANDROID_HOME/tools/bin" $PATH
-set -gx PATH "$ANDROID_HOME/platform-tools" $PATH
+eval (starship init fish)
+
+set --export ANDROID $HOME/Library/Android;
+set --export ANDROID_HOME $ANDROID/sdk;
+set -gx PATH $ANDROID_HOME/tools $PATH;
+set -gx PATH $ANDROID_HOME/tools/bin $PATH;
+set -gx PATH $ANDROID_HOME/platform-tools $PATH;
+
+set --export JAVA_HOME /Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home;
+set -gx PATH $JAVA_HOME/bin $PATH;
 
 # remove fish greeting
 set fish_greeting
@@ -23,9 +25,12 @@ alias todo="todolist"
 alias vup="vagrant up"
 alias vhalt="vagrant halt"
 
+alias tetris="ssh netris.rocketnine.space"
+
 funcsave vim
 funcsave ls
 funcsave cat
 funcsave python
 
 thefuck --alias | source
+set -g fish_user_paths "/usr/local/opt/tcl-tk/bin" $fish_user_paths

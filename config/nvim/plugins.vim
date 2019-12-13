@@ -153,7 +153,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
     Plug 'plasticboy/vim-markdown'
-    let g:vim_markdown_conceal = 0
+    let g:vim_markdown_conceal = 1
+    let g:vim_markdown_conceal_code_blocks = 0
     let g:vim_markdown_folding_disabled = 1
     let g:vim_markdown_math = 1
     let g:vim_markdown_json_frontmatter = 1
