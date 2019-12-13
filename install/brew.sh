@@ -5,7 +5,6 @@ BREW="$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/ins
 brew_install() {
   formulas=(
     bat
-    diff-so-fancy
     git
     fzf
     grep
@@ -20,17 +19,20 @@ brew_install() {
     node
     nvm
     python
-    python3
-    the_silver_searcher
-    exa
+    python3 # python but better :)
+    the_silver_searcher # grep but faster
+    exa # ls but better
     heroku
     neofetch
     gradle
     glfw
     go
+    thefuck # necessary
+    coreutils # GNU cli
+    delta # superior git diff
     "--with-toolchain llvm"
   )
-
+  
   casks=(
     visual-studio-code
     firefox
@@ -45,43 +47,50 @@ brew_install() {
     font-iosevka
     mactex
     vagrant
+    iterm2
   )
-
+  
+  brew update
+  
   while [ ! $# -eq 0 ]; do
     case "$1" in
       --casks)
         for cask in "${casks[@]}"; do
           name=$(echo "$cask" | awk '{print $1}')
           if brew list "$name" > /dev/null 2>&1; then
-            echo "$name already installed... skipping"
+            echo "🧐 cask '$name' already installed... skipping"
           else
             brew cask install "$cask"
           fi
         done
         break
-        ;;
+      ;;
       --formulas)
         for formula in "${formulas[@]}"; do
           name=$(echo "$formula" | awk '{print $1}')
           if brew list "$name" > /dev/null 2>&1; then
-            echo "$name already installed... skipping"
+            echo "🧐 formula '$name' already installed... skipping"
           else
             brew install "$formula"
           fi
         done
-
+        
+        echo "post-install configuration..."
         echo "running $(brew --prefix)/opt/fzf/install"
         $(brew --prefix)/opt/fzf/install
         echo "========================================"
-
+        
         echo "installing neovim python"
         pip3 install pynvim
         echo "========================================"
         break
-        ;;
+      ;;
     esac
     shift
   done
+  
+  brew cleanup
+  echo "🍻 done!"
 }
 
 if test ! "$(command -v brew)"; then
