@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import time
 import signal
 import os
@@ -26,22 +28,25 @@ class EventTimer:
 
     def __start(self):
         if self.app:
-            print('playing music in {}'.format(self.app))
+            print(f'playing music in {self.app}')
+
             os.system(
-                "osascript -e 'tell app \"{}\" to play'".format(self.app)
+                f"osascript -e 'tell app \"{self.app}\" to play'"
             )
 
     def __end(self):
         if self.app:
-            os.system("osascript -e 'tell app \"{}\" to pause'".format(self.app))
+            os.system(f"osascript -e 'tell app \"{self.app}\" to pause'")
         self.__notify('Done!')
         print('done')
 
     def __notify(self, text):
         if self.app:
-            text = self.app + ' - ' + text;
+            text = self.app + ' - ' + text
 
-        os.system("osascript -e 'display notification \"{}\" with title \"EventTimer\"'".format(text))
+        os.system(
+            f"osascript -e 'display notification \"{text}\" with title \"EventTimer\"'"
+        )
 
     def start_timer(self):
         start = datetime.now()
@@ -58,11 +63,10 @@ class EventTimer:
             now = datetime.now()
             time_left = (end - now)
 
-            stdout.write('\r remaining {}'.format(
+            print('\r remaining {}'.format(
                 time_left - timedelta(microseconds=time_left.microseconds)
                 if time_left > timedelta(0)
                 else timedelta(0)
             ))
-            stdout.flush()
 
         print('')
