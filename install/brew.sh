@@ -30,6 +30,7 @@ brew_install() {
     thefuck # necessary
     coreutils # GNU cli
     delta # superior git diff
+    haskell-stack
     "--with-toolchain llvm"
   )
   
