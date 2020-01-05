@@ -32,21 +32,5 @@ for config in $config_files; do
   fi
 done
 
-# vim_files=(
-#   "$HOME/.vim:$DOTFILES/config/nvim"
-#   "$HOME/.vimrc:$DOTFILES/config/nvim/init.vim"
-# )
-
-# for file in "${vim_files[@]}"; do
-#   key=${file%%:*}
-#   val=${file#*:}
-#   if [ -e "${key}" ]; then
-#     echo "${key} already exists. skipping..."
-#   else
-#     echo "linking $key"
-#     ln -s "${val}" "${key}"
-#   fi
-# done
-
 echo "installing vim plugins"
 nvim +'PlugInstall --sync' +qa

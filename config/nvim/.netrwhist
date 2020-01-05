@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/Users/awave/.dev/dotfiles'
+let g:netrw_dirhist_7='/Users/awave/work/cuttlefish/royal'
+let g:netrw_dirhist_6='/Users/awave/.dev/advent-of-code'
 let g:netrw_dirhist_5='/Users/awave/.dev/school-projects/cpsc571/IoT-Manager-Broker'
 let g:netrw_dirhist_4='/Users/awave/work/surfaces-config/surfaces'
 let g:netrw_dirhist_3='/Users/awave/.dev/web/notes/content/cpsc571'

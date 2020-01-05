@@ -144,10 +144,6 @@ call plug#begin('~/.vim/plugged')
 
   " }}}
 
-  " elm {{{
-    Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
-  " }}}
-
   " latex/markdown {{{
     Plug 'lervag/vimtex'
     Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }

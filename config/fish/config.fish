@@ -34,3 +34,5 @@ funcsave python
 
 thefuck --alias | source
 set -g fish_user_paths "/usr/local/opt/tcl-tk/bin" $fish_user_paths
+
+status --is-interactive; and source (jenv init -|psub)
