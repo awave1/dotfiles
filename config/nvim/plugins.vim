@@ -120,6 +120,7 @@ call plug#begin('~/.vim/plugged')
   " javascript/typescript {{{
     Plug 'MaxMEllon/vim-jsx-pretty'
     Plug 'othree/yajs.vim'
+    Plug 'heavenshell/vim-jsdoc'
   " }}}
 
   " json {{{
