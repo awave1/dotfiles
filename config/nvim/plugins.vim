@@ -75,6 +75,7 @@ call plug#begin('~/.vim/plugged')
 "}}}
 
 " Languages {{{
+  Plug 'sheerun/vim-polyglot'
   " autocompletion/linting {{{
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     
@@ -146,6 +147,7 @@ call plug#begin('~/.vim/plugged')
 
 " themes {{{
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'tomasiser/vim-code-dark'
 
   Plug 'ntk148v/vim-horizon'
   Plug 'rakr/vim-one'
