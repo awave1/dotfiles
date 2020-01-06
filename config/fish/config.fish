@@ -19,6 +19,7 @@ set -U EDITOR nvim
 alias vim="nvim"
 alias ls="exa"
 alias cat="bat"
+alias tmux="tmux -f ~/.config/tmux/.tmux.conf"
 
 alias python="python3"
 alias todo="todolist"
