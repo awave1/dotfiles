@@ -78,6 +78,19 @@ call plug#begin('~/.vim/plugged')
   Plug 'sheerun/vim-polyglot'
   " autocompletion/linting {{{
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " use <tab> for trigger completion and navigate to the next complete item
+    function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~ '\s'
+    endfunction
+    inoremap <silent><expr> <Tab>
+          \ pumvisible() ? "\<C-n>" :
+          \ <SID>check_back_space() ? "\<Tab>" :
+          \ coc#refresh()
+    " Navigate completion list using tab
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
     
     Plug 'dense-analysis/ale'
     let g:ale_linters = {
