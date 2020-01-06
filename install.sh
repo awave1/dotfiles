@@ -33,22 +33,24 @@ main() {
 install_dots() {
   echo "> 💻 : setting up dotfiles"
   source ./install/link.sh
+
+  fish_path="$(command -v fish)"
+  if ! grep "$fish_path" /etc/shells; then
+    echo "Adding $fish_path to /etc/shells"
+    echo "$fish_path" | sudo tee -a /etc/shells
+  fi
+
+  if [[ "$SHELL" != "$fish_path" ]]; then
+    chsh -s "$fish_path"
+    echo "shell changed to $fish_path"
+  fi
 }
 
 install_packages() {
   echo "> 📦 : installing packages"
   if [ "$PLATFORM" == "Darwin" ]; then
-    xterm256_italics=$PWD/tmux/xterm-256color-italic.terminfo
-    tmux256_italics=$PWD/tmux/tmux-256color.terminfo
-
     source ./install/brew.sh
-
-    # Allow italics in tmux
-    tic -x $xterm256_italics
-    tic -x $tmux256_italics
   fi
-
-  # todo: add arch packages?
 }
 
 main "$@"; exit
