@@ -8,13 +8,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-easy-align'
   Plug 'sjl/gundo.vim'
   Plug 'qpkorr/vim-bufkill'
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'kristijanhusak/vim-carbon-now-sh'
   Plug 'jiangmiao/auto-pairs'
   Plug 'sickill/vim-pasta'
 
   Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
@@ -26,12 +23,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
   endif
 
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+
   Plug 'mileszs/ack.vim'
   if executable('ag')
     let g:ackprg = 'ag --vimgrep'
   endif
 
-  Plug 'scrooloose/nerdcommenter'
 
   Plug 'junegunn/goyo.vim'
   let g:goyo_width = 80
@@ -50,22 +48,17 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " nerdtree {{{
-    Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'scrooloose/nerdtree', { 'on': [ 'NERDTreeToggle' ] }
+    autocmd vimenter * NERDTree
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-    let NERDTreeShowHidden = 1
     nnoremap <silent> <leader>f :NERDTreeToggle<CR>
     nnoremap <silent> <leader>v :NERDTreeFind<CR>
+    let NERDTreeShowHidden = 1
     let NERDTreeMinimalUI = 1
 
-    let g:WebDevIconsOS = 'Darwin'
-    let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-    let g:DevIconsEnableFoldersOpenClose = 1
-    let g:DevIconsEnableFolderExtensionPatternMatching = 1
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     let g:NERDTreeIndicatorMapCustom = {
         \ "Modified"  : "✹",
         \ "Staged"    : "✚",
@@ -78,33 +71,58 @@ call plug#begin('~/.vim/plugged')
         \ 'Ignored'   : '☒',
         \ "Unknown"   : "?"
         \ }
-  " }}}
-
-  " nnn {{{
-    Plug 'mcchrish/nnn.vim'
-    let g:nnn#layout = 'vnew'
-    let g:nnn#layout = { 'left': '~20%' } " or right, up, down
-  " }}}
+    " }}}
 "}}}
 
 " Languages {{{
-  " autocompletion {{{
-    Plug 'neomake/neomake'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+  Plug 'sheerun/vim-polyglot'
+  " autocompletion/linting {{{
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " use <tab> for trigger completion and navigate to the next complete item
+    function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~ '\s'
+    endfunction
+    inoremap <silent><expr> <Tab>
+          \ pumvisible() ? "\<C-n>" :
+          \ <SID>check_back_space() ? "\<Tab>" :
+          \ coc#refresh()
+    " Navigate completion list using tab
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+    
+    Plug 'dense-analysis/ale'
+    let g:ale_linters = {
+    \  'javascript': ['eslint'],
+    \  'python': ['pylint', 'flake8'],
+    \  'scss': ['stylelint'],
+    \  'css': ['stylelint'],
+    \  'less': ['stylelint'],
+    \  'json': ['eslint'],
+    \}
 
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#enable_smart_case = 1
-    let g:neomake_javascript_enabled_makers = ['eslint']
+    let g:ale_fixers = {
+    \  'javascript': ['prettier', 'prettier-eslint', 'eslint'],
+    \  'typescript': ['prettier', 'tslint'],
+    \  'python': ['autopep8', 'yapf'],
+    \  'scss': ['stylelint'],
+    \  'less': ['stylelint'],
+    \  'css': ['stylelint'],
+    \  'html': ['prettier'],
+    \  'mustache': ['prettier'],
+    \}
+
+    " Do not lint or fix minified files.
+    let g:ale_pattern_options = {
+    \ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+    \ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+    \}
   " }}}
 
   " html/css {{{
     Plug 'mattn/emmet-vim'
     Plug 'othree/html5.vim', { 'for': 'html' }
-    Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
     Plug 'groenewege/vim-less', { 'for': 'less' }
     Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
     Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
@@ -114,14 +132,9 @@ call plug#begin('~/.vim/plugged')
   " }}}
 
   " javascript/typescript {{{
-    Plug 'othree/yajs.vim', { 'for': [ 'javascript', 'javascript.jsx', 'html' ] }
-    Plug 'moll/vim-node'
-    Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescript.tsx'] }
-    Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
-    Plug 'carlitux/deoplete-ternjs'
-    Plug 'posva/vim-vue'
-    Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
     Plug 'MaxMEllon/vim-jsx-pretty'
+    Plug 'othree/yajs.vim'
+    Plug 'heavenshell/vim-jsdoc'
   " }}}
 
   " json {{{
@@ -129,23 +142,10 @@ call plug#begin('~/.vim/plugged')
     let g:vim_json_syntax_conceal = 0
   " }}}
 
-  " c/c++ {{{
-    Plug 'zchee/deoplete-clang'
-    let g:deoplete#sources#clang#libclang_path = "/usr/local/Cellar/llvm/8.0.0_1/lib/libclang.dylib"
-    let g:deoplete#sources#clang#clang_header = "/usr/local/Cellar/llvm/8.0.0_1/lib/clang"
-    let g:deoplete#sources#clang#std = {'c': 'c11', 'cpp': 'c++1z', 'objc': 'c11', 'objcpp': 'c++1z'}
-  " }}}
-
-  " python {{{
-
-  " }}}
-
-  " rust {{{
-
-  " }}}
-
   " latex/markdown {{{
     Plug 'lervag/vimtex'
+    let g:tex_conceal = ""
+
     Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
     Plug 'plasticboy/vim-markdown'
@@ -154,24 +154,15 @@ call plug#begin('~/.vim/plugged')
     let g:vim_markdown_folding_disabled = 1
     let g:vim_markdown_math = 1
     let g:vim_markdown_json_frontmatter = 1
-    let g:tex_conceal = ""
     let g:vim_markdown_math = 1
   " }}}
-
-  " formatting {{{
-     Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-     let g:prettier#autoformat = 1
-     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.json,*.graphql,*.html,*.vue,*.md PrettierAsync
-  " }}}
-
-  Plug 'dart-lang/dart-vim-plugin'
-  Plug 'dag/vim-fish'
 " }}}
 
 " themes {{{
-  Plug 'chriskempson/base16-vim'
-  Plug 'joshdick/onedark.vim'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'tomasiser/vim-code-dark'
+
+  Plug 'ntk148v/vim-horizon'
   Plug 'rakr/vim-one'
   Plug 'morhetz/gruvbox'
   Plug 'ayu-theme/ayu-vim'
