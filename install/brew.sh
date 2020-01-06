@@ -49,6 +49,7 @@ brew_install() {
     mactex
     vagrant
     iterm2
+    kitty
   )
   
   brew update
@@ -112,6 +113,3 @@ if [[ "$SHELL" != "$fish_path" ]]; then
   echo "shell changed to $fish_path"
 fi
 
-kitty="$(curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin)"
-echo "Installing kitty: $kitty"
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
