@@ -102,14 +102,3 @@ fi
 
 brew_install --formulas --casks
 
-fish_path="$(command -v fish)"
-if ! grep "$fish_path" /etc/shells; then
-  echo "Adding $fish_path to /etc/shells"
-  echo "$fish_path" | sudo tee -a /etc/shells
-fi
-
-if [[ "$SHELL" != "$fish_path" ]]; then
-  chsh -s "$fish_path"
-  echo "shell changed to $fish_path"
-fi
-
