@@ -22,6 +22,7 @@ brew_install() {
     python3 # python but better :)
     the_silver_searcher # grep but faster
     exa # ls but better
+    broot
     heroku
     neofetch
     gradle
