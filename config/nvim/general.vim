@@ -76,6 +76,11 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+if has('conceal')
+  set concealcursor=nc
+  set conceallevel=1
+endif
+
 " c
 autocmd FileType c setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd FileType cpp setlocal tabstop=2 shiftwidth=2 expandtab

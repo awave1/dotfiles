@@ -37,7 +37,10 @@ call plug#begin('~/.vim/plugged')
   nmap <F8> :Goyo<cr>
 
   Plug 'scrooloose/nerdcommenter'
+
   Plug 'Yggdroot/indentLine'
+  let g:indentLine_concealcursor = ''
+
   Plug 'wellle/targets.vim'
   Plug 'terryma/vim-expand-region'
   Plug 'unblevable/quick-scope' 
@@ -154,6 +157,8 @@ call plug#begin('~/.vim/plugged')
     let g:vim_markdown_folding_disabled = 1
     let g:vim_markdown_math = 1
     let g:vim_markdown_json_frontmatter = 1
+    let g:vim_markdown_math = 1
+    " let g:tex_conceal = ""
     let g:vim_markdown_math = 1
   " }}}
 " }}}
