@@ -46,3 +46,14 @@ else
 fi
 echo "🔗 : done"
 
+echo "configuring italics support for terminal"
+terminfo_dir="$HOME/.terminfo"
+if [ -e "$terminfo_dir" ]; then
+  echo " > italics are configured"
+else
+  terminfo_files=$(find "$DOTFILES/config/tmux" -name "*.terminfo")
+  for file in $terminfo_files; do
+    echo "$file"
+    tic -o $terminfo_dir $file
+  done
+fi

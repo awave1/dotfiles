@@ -69,6 +69,9 @@ command! BG call ToggleBackground()!
 " ==========================
 set noswapfile
 
+" Display comments as italics
+highlight Comment cterm=italic
+
 " 
 " Indentation
 " 
@@ -78,7 +81,7 @@ set expandtab
 
 if has('conceal')
   set concealcursor=nc
-  set conceallevel=1
+  set conceallevel=2
 endif
 
 " c
