@@ -69,6 +69,9 @@ command! BG call ToggleBackground()!
 " ==========================
 set noswapfile
 
+" Display comments as italics
+highlight Comment cterm=italic
+
 " 
 " Indentation
 " 
