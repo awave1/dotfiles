@@ -103,6 +103,7 @@ call plug#begin('~/.vim/plugged')
     \  'css': ['stylelint'],
     \  'less': ['stylelint'],
     \  'json': ['eslint'],
+    \  'markdown': ['prettier'],
     \}
 
     let g:ale_fixers = {
@@ -114,6 +115,7 @@ call plug#begin('~/.vim/plugged')
     \  'css': ['stylelint'],
     \  'html': ['prettier'],
     \  'mustache': ['prettier'],
+    \  'markdown': ['prettier'],
     \}
 
     " Do not lint or fix minified files.
@@ -158,8 +160,10 @@ call plug#begin('~/.vim/plugged')
     let g:vim_markdown_math = 1
     let g:vim_markdown_json_frontmatter = 1
     let g:vim_markdown_math = 1
-    " let g:tex_conceal = ""
+    let g:tex_conceal = 1
     let g:vim_markdown_math = 1
+
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
   " }}}
 " }}}
 
