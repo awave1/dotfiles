@@ -36,21 +36,22 @@ brew_install() {
   )
   
   casks=(
-    visual-studio-code
     firefox
     google-chrome
     slack
+    visual-studio-code
     docker
-    postman
+    vagrant
+    insomnia
     keeweb
     bitwarden
     jetbrains-toolbox
     ngrok
     font-iosevka
     mactex
-    vagrant
-    iterm2
     kitty
+    alacritty
+    typora
   )
   
   brew update
