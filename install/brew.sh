@@ -32,7 +32,6 @@ brew_install() {
     coreutils # GNU cli
     delta # superior git diff
     haskell-stack
-    "--with-toolchain llvm"
   )
   
   casks=(
@@ -51,7 +50,6 @@ brew_install() {
     mactex
     kitty
     alacritty
-    typora
   )
   
   brew update

@@ -79,6 +79,7 @@ call plug#begin('~/.vim/plugged')
 
 " Languages {{{
   Plug 'sheerun/vim-polyglot'
+  Plug 'vim-scripts/DoxygenToolkit.vim'
   " autocompletion/linting {{{
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " use <tab> for trigger completion and navigate to the next complete item
@@ -116,6 +117,8 @@ call plug#begin('~/.vim/plugged')
     \  'html': ['prettier'],
     \  'mustache': ['prettier'],
     \  'markdown': ['prettier'],
+    \  'c': ['clang-format'],
+    \  'cpp': ['clang-format']
     \}
 
     " Do not lint or fix minified files.
@@ -123,6 +126,17 @@ call plug#begin('~/.vim/plugged')
     \ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
     \ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
     \}
+
+    nnoremap <leader>ff :call ToggleAutoFormat()<cr>
+    function! ToggleAutoFormat()
+      if g:ale_fix_on_save
+        let g:ale_fix_on_save = 0
+        echom "auto formatting: off"
+      else
+        let g:ale_fix_on_save = 1
+        echom "auto formatting: on"
+      endif
+    endfunction
   " }}}
 
   " html/css {{{
@@ -176,6 +190,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
   Plug 'ayu-theme/ayu-vim'
   Plug 'joshdick/onedark.vim'
+  Plug 'fxn/vim-monochrome'
 " }}}
 
 call plug#end()
