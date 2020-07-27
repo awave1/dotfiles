@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Get current branch name
+current_branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+
+# Get the feature name from the cmd line
+feat_name=$1
+
+while test $# -gt 0; do
+	case "$2" in
+		--no-current)
+			git checkout -b "feat/$feat_name"
+			exit 0
+			break
+			;;
+		*)
+			git checkout -b "feat/$current_branch/$feat_name"
+			exit 0
+			break
+			;;
+	esac
+done
+
