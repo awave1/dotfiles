@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+
+# Get current branch name
+current_branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
+
+git push -u origin "$current_branch"
