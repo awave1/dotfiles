@@ -79,6 +79,7 @@ call plug#begin('~/.vim/plugged')
 
 " Languages {{{
   Plug 'sheerun/vim-polyglot'
+  Plug 'vim-scripts/alex.vim'
   Plug 'vim-scripts/DoxygenToolkit.vim'
   " autocompletion/linting {{{
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -105,6 +106,7 @@ call plug#begin('~/.vim/plugged')
     \  'less': ['stylelint'],
     \  'json': ['eslint'],
     \  'markdown': ['prettier'],
+    \  'haskell': ['hint']
     \}
 
     let g:ale_fixers = {
@@ -118,7 +120,8 @@ call plug#begin('~/.vim/plugged')
     \  'mustache': ['prettier'],
     \  'markdown': ['prettier'],
     \  'c': ['clang-format'],
-    \  'cpp': ['clang-format']
+    \  'cpp': ['clang-format'],
+    \  'haskell': ['hlint']
     \}
 
     " Do not lint or fix minified files.

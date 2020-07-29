@@ -155,3 +155,29 @@ autocmd FileType markdown inoremap <F12> ****<Left><Left>
 
 " Enable comments in json
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
+function GitCommit()
+  " close nerdtree by default (almost never used in commits)
+  autocmd VimEnter * NERDTreeClose
+
+  setlocal spell
+
+  " highlight bad spelling
+  :hi SpellBad ctermbg=red ctermbg=white guibg=red guifg=white
+
+  " Margin for emails, make it obvious where 72 characters is.
+  setlocal textwidth=72
+  setlocal colorcolumn=+1
+
+  " Strip space on save.
+  fun! <SID>StripTrailingWhitespace()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+  endfun
+
+  autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
+endfunction
+
+autocmd FileType gitcommit call GitCommit()
