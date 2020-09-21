@@ -26,28 +26,13 @@ brew_install() {
     heroku
     neofetch
     gradle
-    glfw
-    go
     thefuck # necessary
-    coreutils # GNU cli
+    # coreutils # GNU cli
     delta # superior git diff
-    haskell-stack
   )
   
   casks=(
-    firefox
-    google-chrome
-    slack
-    visual-studio-code
-    docker
-    vagrant
-    insomnia
-    keeweb
-    bitwarden
-    jetbrains-toolbox
-    ngrok
     font-iosevka
-    mactex
     kitty
     alacritty
   )
