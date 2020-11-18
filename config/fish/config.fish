@@ -32,18 +32,9 @@ alias cat="bat"
 
 alias tmux="tmux -f ~/.config/tmux/.tmux.conf"
 
-alias python="python3.8"
-alias pip="pip3.8"
-alias todo="todolist"
-
-alias vup="vagrant up"
-alias vhalt="vagrant halt"
-alias vrdp="vagrant rdp"
-
-alias tetris="ssh netris.rocketnine.space"
+alias python="python3"
+alias pip="pip3"
 alias gg="lazygit"
-alias vup="vagrant up"
-alias vhalt="vagrant halt"
 
 alias dots="cd $DOTS"
 
