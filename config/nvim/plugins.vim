@@ -81,6 +81,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'sheerun/vim-polyglot'
   Plug 'vim-scripts/alex.vim'
   Plug 'vim-scripts/DoxygenToolkit.vim'
+  Plug 'fatih/vim-go'
+
   " autocompletion/linting {{{
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " use <tab> for trigger completion and navigate to the next complete item
